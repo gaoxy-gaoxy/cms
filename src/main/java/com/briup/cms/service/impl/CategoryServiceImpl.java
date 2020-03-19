@@ -1,6 +1,8 @@
 package com.briup.cms.service.impl;
 
 import com.briup.cms.bean.Category;
+import com.briup.cms.bean.ex.CategoryEx;
+import com.briup.cms.dao.Ex.ICategoryEXDao;
 import com.briup.cms.dao.ICategoryDao;
 import com.briup.cms.exception.CustomerException;
 import com.briup.cms.service.ICategoryService;
@@ -14,6 +16,8 @@ public class CategoryServiceImpl implements ICategoryService {
 
     @Autowired
     private ICategoryDao categoryDao;
+    @Autowired
+    private ICategoryEXDao categoryEXDao;
 
     @Override
     public void saveOrUpdate(Category category) throws CustomerException {
@@ -37,5 +41,10 @@ public class CategoryServiceImpl implements ICategoryService {
     @Override
     public List<Category> findAll() throws CustomerException {
         return categoryDao.findAll();
+    }
+
+    @Override
+    public List<CategoryEx> findAllCategoryEx() throws CustomerException {
+        return  categoryEXDao.findAll();
     }
 }

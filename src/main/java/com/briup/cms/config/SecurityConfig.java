@@ -68,6 +68,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 // 设置允许访问的资源
                 .antMatchers("/authentication/form").permitAll()
+                .antMatchers("/index/**").permitAll()
                 // 设置允许访问的资源
                 .antMatchers("/webjars/**").permitAll()
                 .antMatchers(
